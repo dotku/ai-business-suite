@@ -3,33 +3,61 @@ import Layout from '../layouts/Layout.astro';
 
 const teamHighlights = [
   {
-    title: "Industry Experience",
-    description: "Our leadership team brings over a decade of combined experience across AI, software development, and business operations.",
-    icon: "briefcase"
+    title: "Vision & Innovation",
+    description: "We're building the future of AI-powered business operations, making advanced AI technology accessible and practical for businesses of all sizes.",
+    icon: "lightbulb"
   },
   {
     title: "Technical Excellence",
-    description: "We've successfully delivered enterprise-grade AI solutions for Fortune 500 companies and innovative startups.",
+    description: "Our founding team combines expertise in AI/ML, software architecture, and cloud infrastructure to deliver robust, scalable solutions.",
     icon: "microchip"
   },
   {
-    title: "Business Focus",
-    description: "Our solutions are designed to deliver measurable business value and ROI through practical AI implementation.",
+    title: "Market Understanding",
+    description: "Deep insights into business process automation and AI integration needs across multiple industries.",
     icon: "chart-line"
   }
 ];
 
 const investmentDetails = {
-  round: "Seed",
-  seeking: "$1,000,000",
-  equity: "10%",
+  round: "Pre-Seed",
+  seeking: "$100K - $500K",
+  equity: "5-10%",
+  valuation: "$1M - $5M",
   use: [
-    "Product development and enhancement",
-    "Market expansion",
-    "Team growth",
-    "Operations scaling"
+    "MVP development and testing",
+    "Initial market validation",
+    "Core team expansion",
+    "Product-market fit research"
   ]
 };
+
+const milestones = [
+  {
+    title: "Q2 2025",
+    items: [
+      "Launch enhanced MVP with AI capabilities",
+      "Expand early adopter program",
+      "Scale development team"
+    ]
+  },
+  {
+    title: "Q3 2025",
+    items: [
+      "Launch enterprise beta program",
+      "Establish key industry partnerships",
+      "Release advanced AI features"
+    ]
+  },
+  {
+    title: "Q4 2025",
+    items: [
+      "Full platform launch",
+      "Begin international expansion",
+      "Initiate seed round preparation"
+    ]
+  }
+];
 ---
 
 <Layout title="About Us - AI Business Suite">
@@ -45,10 +73,10 @@ const investmentDetails = {
     </nav>
 
     <header class="hero">
-      <h1>About <span class="text-gradient">Our Team</span></h1>
+      <h1>Building the Future of <span class="text-gradient">Business AI</span></h1>
       <p class="description">
-        We are a team of seasoned professionals with extensive experience in AI, software development, 
-        and business operations. Our mission is to make AI accessible and practical for businesses of all sizes.
+        We're a forward-thinking startup revolutionizing business operations through practical AI implementation. 
+        In our pre-seed stage, we're developing cutting-edge solutions and seeking strategic partners who share our vision for AI-driven business transformation.
       </p>
     </header>
 
@@ -56,7 +84,9 @@ const investmentDetails = {
       <div class="highlights-grid">
         {teamHighlights.map(highlight => (
           <div class="highlight-card glass-card">
-            <i class={`fas fa-${highlight.icon}`}></i>
+            <div class="icon-wrapper">
+              <i class={`fas fa-${highlight.icon}`}></i>
+            </div>
             <h3>{highlight.title}</h3>
             <p>{highlight.description}</p>
           </div>
@@ -64,25 +94,62 @@ const investmentDetails = {
       </div>
     </section>
 
+    <section class="roadmap glass-card">
+      <h2>Development Roadmap</h2>
+      <div class="milestones">
+        {milestones.map(milestone => (
+          <div class="milestone">
+            <div class="milestone-header">
+              <div class="milestone-icon">
+                <i class="fas fa-flag"></i>
+              </div>
+              <h3>{milestone.title}</h3>
+            </div>
+            <ul>
+              {milestone.items.map(item => (
+                <li><i class="fas fa-check"></i> {item}</li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
+
     <section class="investment-opportunity glass-card">
-      <h2>Investment Opportunity</h2>
+      <h2>Pre-Seed Investment Opportunity</h2>
       <div class="investment-details">
         <div class="detail-row">
           <div class="detail">
+            <div class="detail-icon">
+              <i class="fas fa-seedling"></i>
+            </div>
             <h4>Round</h4>
             <p>{investmentDetails.round}</p>
           </div>
           <div class="detail">
+            <div class="detail-icon">
+              <i class="fas fa-coins"></i>
+            </div>
             <h4>Seeking</h4>
             <p>{investmentDetails.seeking}</p>
           </div>
           <div class="detail">
+            <div class="detail-icon">
+              <i class="fas fa-chart-pie"></i>
+            </div>
             <h4>Equity</h4>
             <p>{investmentDetails.equity}</p>
           </div>
+          <div class="detail">
+            <div class="detail-icon">
+              <i class="fas fa-building"></i>
+            </div>
+            <h4>Valuation</h4>
+            <p>{investmentDetails.valuation}</p>
+          </div>
         </div>
         <div class="use-of-funds">
-          <h4>Use of Funds</h4>
+          <h4><i class="fas fa-list-check"></i> Use of Funds</h4>
           <ul>
             {investmentDetails.use.map(item => (
               <li><i class="fas fa-check"></i> {item}</li>
@@ -92,10 +159,10 @@ const investmentDetails = {
       </div>
       <div class="cta-buttons">
         <a href="/fundraising" class="cta-btn primary">
-          <i class="fas fa-chart-line"></i> Learn More About Investing
+          <i class="fas fa-chart-line"></i> Investment Details
         </a>
-        <a href="mailto:contact@aibusinesssuite.com" class="cta-btn secondary">
-          <i class="fas fa-envelope"></i> Contact Us
+        <a href="http://calendly.com/weijingjaylin" target="_blank" rel="noopener noreferrer" class="cta-btn secondary">
+          <i class="fas fa-calendar"></i> Schedule Meeting
         </a>
       </div>
     </section>
@@ -168,12 +235,27 @@ const investmentDetails = {
   .highlight-card {
     padding: 2rem;
     text-align: center;
+    transition: transform 0.3s ease;
   }
 
-  .highlight-card i {
-    font-size: 2.5rem;
+  .highlight-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .icon-wrapper {
+    width: 60px;
+    height: 60px;
+    background: rgba(var(--accent-light), 0.1);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+  }
+
+  .icon-wrapper i {
+    font-size: 1.8rem;
     color: rgb(var(--accent-light));
-    margin-bottom: 1rem;
   }
 
   .highlight-card h3 {
@@ -187,53 +269,142 @@ const investmentDetails = {
     opacity: 0.9;
   }
 
+  .roadmap {
+    padding: 3rem 2rem;
+    margin-bottom: 4rem;
+  }
+
+  .roadmap h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 3rem;
+    color: rgb(var(--accent-light));
+  }
+
+  .milestones {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+
+  .milestone {
+    padding: 1rem;
+  }
+
+  .milestone-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .milestone-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(var(--accent-light), 0.1);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(var(--accent-light));
+  }
+
+  .milestone h3 {
+    font-size: 1.3rem;
+    margin: 0;
+    color: rgb(var(--accent-light));
+  }
+
+  .milestone ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .milestone li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+  }
+
+  .milestone li i {
+    color: #4ade80;
+  }
+
   .investment-opportunity {
     padding: 3rem 2rem;
-    text-align: center;
   }
 
   .investment-opportunity h2 {
+    text-align: center;
     font-size: 2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
     color: rgb(var(--accent-light));
   }
 
   .investment-details {
-    max-width: 800px;
-    margin: 0 auto 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
   }
 
   .detail-row {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .detail {
+    text-align: center;
+  }
+
+  .detail-icon {
+    width: 50px;
+    height: 50px;
+    background: rgba(var(--accent-light), 0.1);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    color: rgb(var(--accent-light));
+    font-size: 1.3rem;
   }
 
   .detail h4 {
     font-size: 1.1rem;
-    margin-bottom: 0.5rem;
+    margin: 0 0 0.5rem;
     color: rgb(var(--accent-light));
   }
 
   .detail p {
-    font-size: 1.5rem;
-    font-weight: 700;
+    font-size: 1.2rem;
+    margin: 0;
+    font-weight: 600;
   }
 
   .use-of-funds {
-    text-align: left;
+    background: rgba(var(--accent-light), 0.1);
+    padding: 2rem;
+    border-radius: 16px;
+    margin-top: 2rem;
   }
 
   .use-of-funds h4 {
-    font-size: 1.1rem;
-    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    margin: 0 0 1.5rem;
     color: rgb(var(--accent-light));
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
   }
 
   .use-of-funds ul {
     list-style: none;
     padding: 0;
+    margin: 0;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 1rem;
@@ -253,8 +424,7 @@ const investmentDetails = {
     display: flex;
     gap: 1rem;
     justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 2rem;
+    margin-top: 3rem;
   }
 
   .cta-btn {
@@ -266,9 +436,8 @@ const investmentDetails = {
     border-radius: 8px;
     font-size: 1rem;
     font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s ease;
     text-decoration: none;
+    transition: all 0.2s ease;
   }
 
   .cta-btn.primary {
@@ -299,13 +468,20 @@ const investmentDetails = {
       padding: 1rem;
     }
 
-    .investment-opportunity {
-      padding: 2rem 1rem;
+    .highlights-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .milestones {
+      grid-template-columns: 1fr;
     }
 
     .detail-row {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .use-of-funds ul {
       grid-template-columns: 1fr;
-      gap: 1rem;
     }
 
     .cta-buttons {
@@ -314,6 +490,12 @@ const investmentDetails = {
 
     .cta-btn {
       width: 100%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .detail-row {
+      grid-template-columns: 1fr;
     }
   }
 </style>

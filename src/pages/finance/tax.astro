@@ -1,0 +1,400 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const taxFeatures = [
+  {
+    title: "Tax Planning",
+    icon: "calculator",
+    description: "AI-powered tax optimization and planning strategies",
+    capabilities: [
+      "Tax liability forecasting",
+      "Deduction optimization",
+      "Tax scenario analysis",
+      "Strategic planning recommendations"
+    ]
+  },
+  {
+    title: "Compliance Management",
+    icon: "clipboard-check",
+    description: "Automated compliance monitoring and reporting",
+    capabilities: [
+      "Regulatory updates tracking",
+      "Compliance risk assessment",
+      "Filing deadline management",
+      "Documentation organization"
+    ]
+  },
+  {
+    title: "International Tax",
+    icon: "globe",
+    description: "Cross-border tax management and optimization",
+    capabilities: [
+      "Multi-jurisdiction compliance",
+      "Transfer pricing analysis",
+      "Treaty benefit optimization",
+      "Global tax planning"
+    ]
+  },
+  {
+    title: "Tax Reporting",
+    icon: "file-invoice",
+    description: "Automated tax report generation and filing",
+    capabilities: [
+      "Tax return preparation",
+      "Supporting document collection",
+      "Electronic filing",
+      "Audit trail maintenance"
+    ]
+  }
+];
+
+const insights = [
+  {
+    title: "Tax Savings Opportunities",
+    icon: "piggy-bank",
+    description: "AI identifies potential tax savings and optimization opportunities"
+  },
+  {
+    title: "Risk Assessment",
+    icon: "shield-halved",
+    description: "Proactive identification of tax compliance risks and mitigation strategies"
+  },
+  {
+    title: "Regulatory Updates",
+    icon: "bell",
+    description: "Real-time notifications of tax law changes and implications"
+  }
+];
+---
+
+<Layout title="Tax Management AI - Finance Suite">
+  <main>
+    <nav class="top-nav glass-card">
+      <div class="logo">
+        <i class="fas fa-robot text-gradient"></i>
+        <span class="text-gradient">AI</span> Business Suite
+      </div>
+      <a href="/finance" class="back-link">
+        <i class="fas fa-arrow-left"></i> Back to Finance
+      </a>
+    </nav>
+
+    <header class="hero">
+      <h1>Tax Management <span class="text-gradient">AI</span></h1>
+      <p class="description">
+        Streamline your tax management with AI-powered solutions. From planning to 
+        compliance, optimize your tax operations with intelligent automation.
+      </p>
+    </header>
+
+    <section class="features">
+      <h2>Core Features</h2>
+      <div class="features-grid">
+        {taxFeatures.map(feature => (
+          <div class="feature-card glass-card">
+            <div class="feature-header">
+              <div class="feature-icon">
+                <i class={`fas fa-${feature.icon}`}></i>
+              </div>
+              <h3>{feature.title}</h3>
+            </div>
+            <p class="feature-description">{feature.description}</p>
+            <div class="capabilities">
+              <h4>Capabilities</h4>
+              <ul>
+                {feature.capabilities.map(capability => (
+                  <li><i class="fas fa-check"></i> {capability}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="insights glass-card">
+      <h2>AI-Powered Insights</h2>
+      <div class="insights-grid">
+        {insights.map(insight => (
+          <div class="insight-card">
+            <div class="insight-icon">
+              <i class={`fas fa-${insight.icon}`}></i>
+            </div>
+            <h3>{insight.title}</h3>
+            <p>{insight.description}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="cta-section glass-card">
+      <h2>Ready to Optimize Your Tax Management?</h2>
+      <p>Transform your tax operations with AI-powered solutions.</p>
+      <div class="cta-buttons">
+        <a href="#" class="cta-btn primary">
+          <i class="fas fa-play"></i> Get Started
+        </a>
+        <a 
+          href="http://calendly.com/weijingjaylin" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="cta-btn secondary"
+        >
+          <i class="fas fa-calendar"></i> Schedule Demo
+        </a>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  main {
+    margin: auto;
+    padding: 1rem;
+    max-width: 1400px;
+  }
+
+  .top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    margin-bottom: 2rem;
+    position: sticky;
+    top: 1rem;
+    z-index: 100;
+  }
+
+  .back-link {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+  }
+
+  .back-link:hover {
+    opacity: 1;
+  }
+
+  .hero {
+    text-align: center;
+    margin: 4rem auto;
+    max-width: 800px;
+    padding: 0 1rem;
+  }
+
+  h1 {
+    font-size: clamp(2.5rem, 8vw, 4rem);
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+  }
+
+  .description {
+    font-size: clamp(1.1rem, 3vw, 1.25rem);
+    color: rgb(var(--accent-light));
+    line-height: 1.6;
+  }
+
+  .features {
+    margin-bottom: 4rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+    color: rgb(var(--accent-light));
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+  }
+
+  .feature-card {
+    padding: 2rem;
+  }
+
+  .feature-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .feature-icon {
+    width: 50px;
+    height: 50px;
+    background: rgba(var(--accent-light), 0.1);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: rgb(var(--accent-light));
+  }
+
+  .feature-header h3 {
+    font-size: 1.3rem;
+    margin: 0;
+    color: rgb(var(--accent-light));
+  }
+
+  .feature-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 1.5rem;
+  }
+
+  .capabilities h4 {
+    font-size: 1.1rem;
+    color: rgb(var(--accent-light));
+    margin-bottom: 1rem;
+  }
+
+  .capabilities ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .capabilities li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .capabilities li i {
+    color: #4ade80;
+  }
+
+  .insights {
+    padding: 3rem 2rem;
+    margin-bottom: 4rem;
+  }
+
+  .insights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .insight-card {
+    text-align: center;
+    padding: 2rem;
+    background: rgba(var(--accent-light), 0.1);
+    border-radius: 12px;
+  }
+
+  .insight-icon {
+    width: 60px;
+    height: 60px;
+    background: rgba(var(--accent-light), 0.2);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    color: rgb(var(--accent-light));
+    font-size: 1.5rem;
+  }
+
+  .insight-card h3 {
+    font-size: 1.3rem;
+    color: rgb(var(--accent-light));
+    margin-bottom: 1rem;
+  }
+
+  .insight-card p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .cta-section {
+    text-align: center;
+    padding: 3rem 2rem;
+  }
+
+  .cta-section h2 {
+    margin-bottom: 1rem;
+  }
+
+  .cta-section p {
+    color: rgb(var(--accent-light));
+    margin-bottom: 2rem;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+  }
+
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .cta-btn.primary {
+    background: rgb(var(--accent));
+    color: white;
+  }
+
+  .cta-btn.secondary {
+    background: rgba(var(--accent-light), 0.1);
+    color: rgb(var(--accent-light));
+    border: 1px solid rgba(var(--accent-light), 0.2);
+  }
+
+  .cta-btn:hover {
+    transform: translateY(-2px);
+  }
+
+  .cta-btn.primary:hover {
+    background: rgb(var(--accent-light));
+  }
+
+  .cta-btn.secondary:hover {
+    background: rgba(var(--accent-light), 0.2);
+  }
+
+  @media (max-width: 768px) {
+    .top-nav {
+      padding: 1rem;
+    }
+
+    .features-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .insights-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+    }
+
+    .cta-btn {
+      width: 100%;
+    }
+  }
+</style>

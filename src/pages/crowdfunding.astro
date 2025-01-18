@@ -1,0 +1,498 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const crowdfundingPlatforms = [
+  {
+    type: "Reward-Based Crowdfunding",
+    description: "Perfect for startups looking to raise funds through product pre-sales or exclusive offers.",
+    platforms: [
+      {
+        name: "Kickstarter",
+        icon: "rocket",
+        features: [
+          "Ideal for creative and innovative projects",
+          "All-or-Nothing funding model",
+          "Strong tech community"
+        ],
+        bestFor: "Tech products and AI tools"
+      },
+      {
+        name: "Indiegogo",
+        icon: "globe",
+        features: [
+          "Flexible funding options",
+          "Hardware and tech-friendly",
+          "International project support"
+        ],
+        bestFor: "Hardware and software solutions"
+      }
+    ]
+  },
+  {
+    type: "Equity Crowdfunding",
+    description: "Allows startups to raise capital by offering equity to investors.",
+    platforms: [
+      {
+        name: "WeFunder",
+        icon: "users",
+        features: [
+          "Minimum investment from $100",
+          "Tech startup focused",
+          "Large investor community"
+        ],
+        bestFor: "Early-stage tech startups"
+      },
+      {
+        name: "StartEngine",
+        icon: "chart-line",
+        features: [
+          "Multiple funding rounds support",
+          "Future-focused business emphasis",
+          "Strong investor network"
+        ],
+        bestFor: "Growth-stage companies"
+      },
+      {
+        name: "Republic",
+        icon: "microchip",
+        features: [
+          "Focus on tech and AI",
+          "Community support",
+          "Expert network access"
+        ],
+        bestFor: "AI and blockchain projects"
+      }
+    ]
+  },
+  {
+    type: "Debt Crowdfunding",
+    description: "Raise funds through fixed-rate loans from multiple lenders.",
+    platforms: [
+      {
+        name: "Funding Circle",
+        icon: "circle-dollar-to-slot",
+        features: [
+          "Business loans for startups",
+          "Competitive interest rates",
+          "Quick funding process"
+        ],
+        bestFor: "Established startups with revenue"
+      },
+      {
+        name: "Kiva",
+        icon: "hand-holding-heart",
+        features: [
+          "Zero-interest loans",
+          "Social impact focus",
+          "Global reach"
+        ],
+        bestFor: "Social impact projects"
+      }
+    ]
+  }
+];
+
+const bestPractices = [
+  {
+    title: "Platform Selection",
+    icon: "check-double",
+    tips: [
+      "Choose tech-focused platforms for AI projects",
+      "Consider funding model flexibility",
+      "Evaluate platform audience alignment"
+    ]
+  },
+  {
+    title: "Campaign Strategy",
+    icon: "bullseye",
+    tips: [
+      "Create compelling project story",
+      "Set realistic funding goals",
+      "Plan marketing and PR activities"
+    ]
+  },
+  {
+    title: "Investor Communication",
+    icon: "comments",
+    tips: [
+      "Regular progress updates",
+      "Clear milestone communication",
+      "Transparent use of funds"
+    ]
+  }
+];
+---
+
+<Layout title="Crowdfunding Strategy - AI Business Suite">
+  <main>
+    <nav class="top-nav glass-card">
+      <div class="logo">
+        <i class="fas fa-robot text-gradient"></i>
+        <span class="text-gradient">AI</span> Business Suite
+      </div>
+      <a href="/fundraising" class="back-link">
+        <i class="fas fa-arrow-left"></i> Back to Fundraising
+      </a>
+    </nav>
+
+    <header class="hero">
+      <h1>Crowdfunding <span class="text-gradient">Strategy Blueprint</span></h1>
+      <p class="description">
+        Explore various crowdfunding platforms and strategies to support your AI project's growth. 
+        From reward-based to equity crowdfunding, find the perfect platform for your needs.
+      </p>
+    </header>
+
+    <section class="platforms">
+      {crowdfundingPlatforms.map(category => (
+        <div class="category glass-card">
+          <h2>{category.type}</h2>
+          <p class="category-description">{category.description}</p>
+          
+          <div class="platforms-grid">
+            {category.platforms.map(platform => (
+              <div class="platform-card">
+                <div class="platform-header">
+                  <div class="platform-icon">
+                    <i class={`fas fa-${platform.icon}`}></i>
+                  </div>
+                  <h3>{platform.name}</h3>
+                </div>
+                <div class="platform-content">
+                  <ul class="features">
+                    {platform.features.map(feature => (
+                      <li><i class="fas fa-check"></i> {feature}</li>
+                    ))}
+                  </ul>
+                  <div class="best-for">
+                    <i class="fas fa-star"></i>
+                    <span>Best for: {platform.bestFor}</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </section>
+
+    <section class="best-practices glass-card">
+      <h2>Best Practices for Success</h2>
+      <div class="practices-grid">
+        {bestPractices.map(practice => (
+          <div class="practice-card">
+            <div class="practice-icon">
+              <i class={`fas fa-${practice.icon}`}></i>
+            </div>
+            <h3>{practice.title}</h3>
+            <ul>
+              {practice.tips.map(tip => (
+                <li><i class="fas fa-check"></i> {tip}</li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="cta-section glass-card">
+      <h2>Ready to Start Your Crowdfunding Journey?</h2>
+      <p>Let us help you choose the right platform and create a winning campaign strategy.</p>
+      <div class="cta-buttons">
+        <a href="/fundraising" class="cta-btn primary">
+          <i class="fas fa-chart-line"></i> Explore Funding Options
+        </a>
+        <a href="http://calendly.com/weijingjaylin" target="_blank" rel="noopener noreferrer" class="cta-btn secondary">
+          <i class="fas fa-calendar"></i> Schedule Strategy Session
+        </a>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  main {
+    margin: auto;
+    padding: 1rem;
+    max-width: 1400px;
+  }
+
+  .top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    margin-bottom: 2rem;
+    position: sticky;
+    top: 1rem;
+    z-index: 100;
+  }
+
+  .back-link {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+  }
+
+  .back-link:hover {
+    opacity: 1;
+  }
+
+  .hero {
+    text-align: center;
+    margin: 4rem auto;
+    max-width: 800px;
+    padding: 0 1rem;
+  }
+
+  h1 {
+    font-size: clamp(2.5rem, 8vw, 4rem);
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+  }
+
+  .description {
+    font-size: clamp(1.1rem, 3vw, 1.25rem);
+    color: rgb(var(--accent-light));
+    line-height: 1.6;
+  }
+
+  .platforms {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    margin-bottom: 4rem;
+  }
+
+  .category {
+    padding: 2rem;
+  }
+
+  .category h2 {
+    font-size: 2rem;
+    color: rgb(var(--accent-light));
+    margin-bottom: 1rem;
+  }
+
+  .category-description {
+    color: rgb(var(--accent-light));
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+  }
+
+  .platforms-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .platform-card {
+    background: rgba(var(--accent-light), 0.1);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: transform 0.3s ease;
+  }
+
+  .platform-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .platform-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .platform-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(var(--accent-light), 0.2);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(var(--accent-light));
+    font-size: 1.2rem;
+  }
+
+  .platform-header h3 {
+    font-size: 1.3rem;
+    margin: 0;
+    color: rgb(var(--accent-light));
+  }
+
+  .features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem;
+  }
+
+  .features li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .features li i {
+    color: #4ade80;
+  }
+
+  .best-for {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgb(var(--accent-light));
+    font-size: 0.9rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(var(--accent-light), 0.2);
+  }
+
+  .best-practices {
+    padding: 3rem 2rem;
+    margin-bottom: 4rem;
+  }
+
+  .best-practices h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: rgb(var(--accent-light));
+    margin-bottom: 3rem;
+  }
+
+  .practices-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+
+  .practice-card {
+    text-align: center;
+    padding: 2rem;
+    background: rgba(var(--accent-light), 0.1);
+    border-radius: 12px;
+  }
+
+  .practice-icon {
+    width: 60px;
+    height: 60px;
+    background: rgba(var(--accent-light), 0.2);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    color: rgb(var(--accent-light));
+    font-size: 1.5rem;
+  }
+
+  .practice-card h3 {
+    font-size: 1.3rem;
+    color: rgb(var(--accent-light));
+    margin-bottom: 1.5rem;
+  }
+
+  .practice-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+  }
+
+  .practice-card li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .practice-card li i {
+    color: #4ade80;
+  }
+
+  .cta-section {
+    text-align: center;
+    padding: 3rem 2rem;
+  }
+
+  .cta-section h2 {
+    font-size: 2rem;
+    color: rgb(var(--accent-light));
+    margin-bottom: 1rem;
+  }
+
+  .cta-section p {
+    color: rgb(var(--accent-light));
+    margin-bottom: 2rem;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+  }
+
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .cta-btn.primary {
+    background: rgb(var(--accent));
+    color: white;
+  }
+
+  .cta-btn.secondary {
+    background: rgba(var(--accent-light), 0.1);
+    color: rgb(var(--accent-light));
+    border: 1px solid rgba(var(--accent-light), 0.2);
+  }
+
+  .cta-btn:hover {
+    transform: translateY(-2px);
+  }
+
+  .cta-btn.primary:hover {
+    background: rgb(var(--accent-light));
+  }
+
+  .cta-btn.secondary:hover {
+    background: rgba(var(--accent-light), 0.2);
+  }
+
+  @media (max-width: 768px) {
+    .top-nav {
+      padding: 1rem;
+    }
+
+    .platforms-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .practices-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+    }
+
+    .cta-btn {
+      width: 100%;
+    }
+  }
+</style>

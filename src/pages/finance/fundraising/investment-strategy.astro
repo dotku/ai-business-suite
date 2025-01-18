@@ -1,0 +1,440 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+
+const investmentStrategies = [
+  {
+    title: "Pre-Seed Round",
+    amount: "$100K - $500K",
+    equity: "5-10%",
+    valuation: "$1M - $5M",
+    focus: [
+      "MVP development",
+      "Initial market validation",
+      "Core team formation",
+      "Product-market fit research"
+    ],
+    status: "Active"
+  },
+  {
+    title: "Seed Round",
+    amount: "$1M - $2.5M",
+    equity: "10-20%",
+    valuation: "$5M - $15M",
+    focus: [
+      "Product-market fit validation",
+      "User acquisition scaling",
+      "Operational foundation",
+      "Early revenue generation"
+    ],
+    status: "Upcoming"
+  }
+];
+
+const aiFeatures = [
+  {
+    title: "Investor Matching",
+    icon: "handshake",
+    description: "AI-powered matching with potential investors based on investment history and preferences"
+  },
+  {
+    title: "Valuation Analysis",
+    icon: "chart-line",
+    description: "Intelligent market analysis and company valuation based on industry data"
+  },
+  {
+    title: "Pitch Optimization",
+    icon: "bullhorn",
+    description: "AI-driven pitch deck analysis and optimization for better investor engagement"
+  }
+];
+---
+
+<Layout title="Investment Strategy - Finance AI">
+  <main>
+    <nav class="top-nav glass-card">
+      <div class="logo">
+        <i class="fas fa-robot text-gradient"></i>
+        <span class="text-gradient">AI</span> Business Suite
+      </div>
+      <a href="/finance" class="back-link">
+        <i class="fas fa-arrow-left"></i> Back to Finance
+      </a>
+    </nav>
+
+    <header class="hero">
+      <h1>Investment <span class="text-gradient">Strategy</span></h1>
+      <p class="description">
+        AI-powered investment strategy planning and execution. Optimize your fundraising 
+        efforts with intelligent investor matching and market analysis.
+      </p>
+    </header>
+
+    <section class="features">
+      <h2>AI-Powered Features</h2>
+      <div class="features-grid">
+        {aiFeatures.map(feature => (
+          <div class="feature-card glass-card">
+            <div class="feature-icon">
+              <i class={`fas fa-${feature.icon}`}></i>
+            </div>
+            <h3>{feature.title}</h3>
+            <p>{feature.description}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="strategies">
+      <h2>Investment Rounds</h2>
+      <div class="strategies-grid">
+        {investmentStrategies.map(strategy => (
+          <div class="strategy-card glass-card">
+            <div class="strategy-header">
+              <h3>{strategy.title}</h3>
+              <span class={`status ${strategy.status.toLowerCase()}`}>
+                {strategy.status}
+              </span>
+            </div>
+            
+            <div class="metrics">
+              <div class="metric">
+                <i class="fas fa-coins"></i>
+                <span>Amount: {strategy.amount}</span>
+              </div>
+              <div class="metric">
+                <i class="fas fa-chart-pie"></i>
+                <span>Equity: {strategy.equity}</span>
+              </div>
+              <div class="metric">
+                <i class="fas fa-building"></i>
+                <span>Valuation: {strategy.valuation}</span>
+              </div>
+            </div>
+
+            <div class="focus">
+              <h4>Key Focus Areas</h4>
+              <ul>
+                {strategy.focus.map(item => (
+                  <li><i class="fas fa-check"></i> {item}</li>
+                ))}
+              </ul>
+            </div>
+
+            {strategy.status === 'Active' && (
+              <a 
+                href="http://calendly.com/weijingjaylin" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="schedule-btn"
+              >
+                Schedule Discussion <i class="fas fa-arrow-right"></i>
+              </a>
+            )}
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="cta-section glass-card">
+      <h2>Ready to Start Your Investment Journey?</h2>
+      <p>Let our AI help you develop the perfect investment strategy for your business.</p>
+      <div class="cta-buttons">
+        <a href="/finance/fundraising/crowdfunding" class="cta-btn primary">
+          <i class="fas fa-users"></i> Explore Crowdfunding
+        </a>
+        <a 
+          href="http://calendly.com/weijingjaylin" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="cta-btn secondary"
+        >
+          <i class="fas fa-calendar"></i> Schedule Consultation
+        </a>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  main {
+    margin: auto;
+    padding: 1rem;
+    max-width: 1400px;
+  }
+
+  .top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    margin-bottom: 2rem;
+    position: sticky;
+    top: 1rem;
+    z-index: 100;
+  }
+
+  .back-link {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+  }
+
+  .back-link:hover {
+    opacity: 1;
+  }
+
+  .hero {
+    text-align: center;
+    margin: 4rem auto;
+    max-width: 800px;
+    padding: 0 1rem;
+  }
+
+  h1 {
+    font-size: clamp(2.5rem, 8vw, 4rem);
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+  }
+
+  .description {
+    font-size: clamp(1.1rem, 3vw, 1.25rem);
+    color: rgb(var(--accent-light));
+    line-height: 1.6;
+  }
+
+  .features {
+    margin-bottom: 4rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+    color: rgb(var(--accent-light));
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+  }
+
+  .feature-card {
+    padding: 2rem;
+    text-align: center;
+  }
+
+  .feature-icon {
+    width: 60px;
+    height: 60px;
+    background: rgba(var(--accent-light), 0.1);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-size: 1.5rem;
+    color: rgb(var(--accent-light));
+  }
+
+  .feature-card h3 {
+    font-size: 1.3rem;
+    color: rgb(var(--accent-light));
+    margin-bottom: 1rem;
+  }
+
+  .feature-card p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .strategies {
+    margin-bottom: 4rem;
+  }
+
+  .strategies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+  }
+
+  .strategy-card {
+    padding: 2rem;
+  }
+
+  .strategy-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .strategy-header h3 {
+    font-size: 1.5rem;
+    margin: 0;
+    color: rgb(var(--accent-light));
+  }
+
+  .status {
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  .status.active {
+    background: rgba(74, 222, 128, 0.2);
+    color: #4ade80;
+  }
+
+  .status.upcoming {
+    background: rgba(var(--accent-light), 0.2);
+    color: rgb(var(--accent-light));
+  }
+
+  .metrics {
+    display: grid;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    background: rgba(var(--accent-light), 0.1);
+    padding: 1rem;
+    border-radius: 8px;
+  }
+
+  .metric {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgb(var(--accent-light));
+  }
+
+  .focus h4 {
+    font-size: 1.1rem;
+    color: rgb(var(--accent-light));
+    margin-bottom: 1rem;
+  }
+
+  .focus ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .focus li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .focus li i {
+    color: #4ade80;
+  }
+
+  .schedule-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 1rem;
+    margin-top: 1.5rem;
+    background: rgb(var(--accent));
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+  }
+
+  .schedule-btn:hover {
+    background: rgb(var(--accent-light));
+    transform: translateY(-2px);
+  }
+
+  .cta-section {
+    text-align: center;
+    padding: 3rem 2rem;
+  }
+
+  .cta-section h2 {
+    margin-bottom: 1rem;
+  }
+
+  .cta-section p {
+    color: rgb(var(--accent-light));
+    margin-bottom: 2rem;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+  }
+
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .cta-btn.primary {
+    background: rgb(var(--accent));
+    color: white;
+  }
+
+  .cta-btn.secondary {
+    background: rgba(var(--accent-light), 0.1);
+    color: rgb(var(--accent-light));
+    border: 1px solid rgba(var(--accent-light), 0.2);
+  }
+
+  .cta-btn:hover {
+    transform: translateY(-2px);
+  }
+
+  .cta-btn.primary:hover {
+    background: rgb(var(--accent-light));
+  }
+
+  .cta-btn.secondary:hover {
+    background: rgba(var(--accent-light), 0.2);
+  }
+
+  @media (max-width: 768px) {
+    .top-nav {
+      padding: 1rem;
+    }
+
+    .features-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .strategies-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+    }
+
+    .cta-btn {
+      width: 100%;
+    }
+  }
+</style>

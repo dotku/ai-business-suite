@@ -1,0 +1,246 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const financeModules = [
+  {
+    title: "Fundraising",
+    icon: "chart-line",
+    description: "Comprehensive fundraising solutions including investment strategy and crowdfunding",
+    submodules: [
+      {
+        name: "Investment Strategy",
+        path: "/finance/fundraising/investment-strategy",
+        icon: "money-bill-trend-up"
+      },
+      {
+        name: "Crowdfunding",
+        path: "/finance/fundraising/crowdfunding",
+        icon: "users-between-lines"
+      }
+    ]
+  },
+  {
+    title: "Accounting",
+    icon: "calculator",
+    description: "AI-powered accounting tools for financial management and reporting",
+    path: "/finance/accounting"
+  },
+  {
+    title: "Tax Management",
+    icon: "receipt",
+    description: "Intelligent tax planning and compliance assistance",
+    path: "/finance/tax"
+  }
+];
+---
+
+<Layout title="Finance AI - Business Suite">
+  <main>
+    <nav class="top-nav glass-card">
+      <div class="logo">
+        <i class="fas fa-robot text-gradient"></i>
+        <span class="text-gradient">AI</span> Business Suite
+      </div>
+      <a href="/" class="back-link">
+        <i class="fas fa-arrow-left"></i> Back to Overview
+      </a>
+    </nav>
+
+    <header class="hero">
+      <h1>Finance <span class="text-gradient">AI</span></h1>
+      <p class="description">
+        Comprehensive AI-powered financial management solutions for your business. 
+        From fundraising to tax management, streamline your financial operations with intelligent automation.
+      </p>
+    </header>
+
+    <section class="modules">
+      <div class="modules-grid">
+        {financeModules.map(module => (
+          <div class="module-card glass-card">
+            <div class="module-header">
+              <div class="module-icon">
+                <i class={`fas fa-${module.icon}`}></i>
+              </div>
+              <h2>{module.title}</h2>
+            </div>
+            <p class="module-description">{module.description}</p>
+            
+            {module.submodules ? (
+              <div class="submodules">
+                {module.submodules.map(sub => (
+                  <a href={sub.path} class="submodule-link">
+                    <i class={`fas fa-${sub.icon}`}></i>
+                    <span>{sub.name}</span>
+                    <i class="fas fa-arrow-right"></i>
+                  </a>
+                ))}
+              </div>
+            ) : (
+              <a href={module.path} class="explore-btn">
+                Explore Module <i class="fas fa-arrow-right"></i>
+              </a>
+            )}
+          </div>
+        ))}
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  main {
+    margin: auto;
+    padding: 1rem;
+    max-width: 1400px;
+  }
+
+  .top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    margin-bottom: 2rem;
+    position: sticky;
+    top: 1rem;
+    z-index: 100;
+  }
+
+  .back-link {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+  }
+
+  .back-link:hover {
+    opacity: 1;
+  }
+
+  .hero {
+    text-align: center;
+    margin: 4rem auto;
+    max-width: 800px;
+    padding: 0 1rem;
+  }
+
+  h1 {
+    font-size: clamp(2.5rem, 8vw, 4rem);
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+  }
+
+  .description {
+    font-size: clamp(1.1rem, 3vw, 1.25rem);
+    color: rgb(var(--accent-light));
+    line-height: 1.6;
+  }
+
+  .modules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+  }
+
+  .module-card {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .module-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .module-icon {
+    width: 50px;
+    height: 50px;
+    background: rgba(var(--accent-light), 0.1);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: rgb(var(--accent-light));
+  }
+
+  .module-card h2 {
+    font-size: 1.5rem;
+    margin: 0;
+    color: rgb(var(--accent-light));
+  }
+
+  .module-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 2rem;
+  }
+
+  .submodules {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: auto;
+  }
+
+  .submodule-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: rgba(var(--accent-light), 0.1);
+    border-radius: 8px;
+    color: white;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .submodule-link:hover {
+    background: rgba(var(--accent-light), 0.2);
+    transform: translateX(5px);
+  }
+
+  .submodule-link span {
+    flex: 1;
+  }
+
+  .explore-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 1rem;
+    margin-top: auto;
+    background: rgb(var(--accent));
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+  }
+
+  .explore-btn:hover {
+    background: rgb(var(--accent-light));
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 768px) {
+    .top-nav {
+      padding: 1rem;
+    }
+
+    .modules-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
