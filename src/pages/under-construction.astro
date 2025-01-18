@@ -1,0 +1,52 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Module Under Construction">
+  <main>
+    <div class="construction-container">
+      <h1>🚧 <span class="text-gradient">Under Construction</span> 🚧</h1>
+      <p class="message">
+        This AI module is currently being developed. Our team is working hard to bring you innovative solutions.
+      </p>
+      <a href="/" class="back-btn">Return to Home</a>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .construction-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+  }
+
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .message {
+    color: rgb(var(--accent-light));
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+  }
+
+  .back-btn {
+    background: rgb(var(--accent));
+    color: white;
+    text-decoration: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 4px;
+    transition: background 0.2s ease;
+  }
+
+  .back-btn:hover {
+    background: rgb(var(--accent-light));
+  }
+</style>

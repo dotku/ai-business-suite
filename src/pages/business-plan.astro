@@ -1,0 +1,489 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const aiModules = [
+  {
+    title: "Recruiting AI",
+    description: "Streamline your hiring process with AI-powered candidate screening, automated interviews, and skill assessments.",
+    status: "Active",
+    features: [
+      "AI-driven resume parsing",
+      "Automated initial screening",
+      "Skill assessment automation",
+      "Interview scheduling"
+    ],
+    icon: "users"
+  },
+  {
+    title: "Fundraising AI",
+    description: "Connect with investors and manage fundraising efforts through AI-powered matching and communication.",
+    status: "Active",
+    features: [
+      "Investor matching",
+      "Pitch deck automation",
+      "Investment analytics",
+      "Communication management"
+    ],
+    icon: "chart-line"
+  },
+  {
+    title: "Marketing AI",
+    description: "Optimize your marketing campaigns with AI-driven insights and automation tools.",
+    status: "Coming Soon",
+    features: [
+      "Campaign optimization",
+      "Content generation",
+      "Market analysis",
+      "Performance tracking"
+    ],
+    icon: "bullhorn"
+  },
+  {
+    title: "Execution AI",
+    description: "Enhance project execution with AI-powered planning and monitoring tools.",
+    status: "Coming Soon",
+    features: [
+      "Project planning",
+      "Resource allocation",
+      "Risk assessment",
+      "Progress tracking"
+    ],
+    icon: "rocket"
+  },
+  {
+    title: "Implementation AI",
+    description: "Streamline software implementation processes with AI assistance.",
+    status: "Coming Soon",
+    features: [
+      "Code analysis",
+      "Integration support",
+      "Testing automation",
+      "Deployment optimization"
+    ],
+    icon: "code"
+  },
+  {
+    title: "Customer Support AI",
+    description: "Provide 24/7 customer support with AI-powered assistance and ticket management.",
+    status: "Coming Soon",
+    features: [
+      "Automated responses",
+      "Ticket prioritization",
+      "Customer sentiment analysis",
+      "Support analytics"
+    ],
+    icon: "headset"
+  },
+  {
+    title: "Sales AI",
+    description: "Boost sales performance with AI-driven lead scoring and opportunity analysis.",
+    status: "Coming Soon",
+    features: [
+      "Lead scoring",
+      "Sales forecasting",
+      "Pipeline optimization",
+      "Deal analytics"
+    ],
+    icon: "handshake"
+  },
+  {
+    title: "Data Analytics AI",
+    description: "Transform raw data into actionable insights with advanced AI analytics.",
+    status: "Coming Soon",
+    features: [
+      "Data processing",
+      "Predictive analytics",
+      "Visualization",
+      "Report automation"
+    ],
+    icon: "chart-bar"
+  },
+  {
+    title: "Content Creation AI",
+    description: "Generate and optimize content with AI-powered tools and recommendations.",
+    status: "Coming Soon",
+    features: [
+      "Content generation",
+      "SEO optimization",
+      "Topic research",
+      "Performance analysis"
+    ],
+    icon: "pen-fancy"
+  },
+  {
+    title: "Creative AI",
+    description: "Enhance creative processes with AI-powered design and ideation tools.",
+    status: "Coming Soon",
+    features: [
+      "Design assistance",
+      "Creative ideation",
+      "Style transfer",
+      "Asset generation"
+    ],
+    icon: "paint-brush"
+  },
+  {
+    title: "Social Media Management AI",
+    description: "Optimize social media presence with AI-driven content and engagement strategies.",
+    status: "Coming Soon",
+    features: [
+      "Content scheduling",
+      "Engagement analysis",
+      "Trend monitoring",
+      "Performance tracking"
+    ],
+    icon: "share-nodes"
+  },
+  {
+    title: "Product Development AI",
+    description: "Accelerate product development with AI-powered research and testing tools.",
+    status: "Coming Soon",
+    features: [
+      "Market research",
+      "Feature prioritization",
+      "User testing",
+      "Feedback analysis"
+    ],
+    icon: "cube"
+  },
+  {
+    title: "Legal AI",
+    description: "Streamline legal processes with AI-powered document analysis and compliance tools.",
+    status: "Coming Soon",
+    features: [
+      "Document analysis",
+      "Compliance checking",
+      "Contract review",
+      "Legal research"
+    ],
+    icon: "scale-balanced"
+  },
+  {
+    title: "Performance Monitoring AI",
+    description: "Monitor and optimize system performance with AI-driven analytics and alerts.",
+    status: "Coming Soon",
+    features: [
+      "System monitoring",
+      "Performance optimization",
+      "Anomaly detection",
+      "Resource management"
+    ],
+    icon: "gauge-high"
+  }
+];
+---
+
+<Layout title="AI Business Suite - Business Plan">
+  <main>
+    <nav class="top-nav glass-card">
+      <div class="logo">
+        <i class="fas fa-robot text-gradient"></i>
+        <span class="text-gradient">AI</span> Business Suite
+      </div>
+      <a href="/" class="back-link">
+        <i class="fas fa-arrow-left"></i> Back to Overview
+      </a>
+    </nav>
+
+    <header class="hero">
+      <h1>AI Business Suite <span class="text-gradient">Roadmap</span></h1>
+      <p class="description">
+        Explore our comprehensive suite of AI-powered business modules designed to transform 
+        and optimize every aspect of your operations.
+      </p>
+    </header>
+
+    <section class="modules">
+      <div class="modules-grid">
+        {aiModules.map(module => (
+          <div class="module-card glass-card">
+            <div class="module-header">
+              <div class="icon-wrapper">
+                <i class={`fas fa-${module.icon}`}></i>
+              </div>
+              <span class={`status-badge ${module.status === 'Active' ? 'active' : 'coming-soon'}`}>
+                {module.status}
+              </span>
+            </div>
+            <h2>{module.title}</h2>
+            <p class="module-description">{module.description}</p>
+            <div class="features">
+              <h3>Key Features</h3>
+              <ul>
+                {module.features.map(feature => (
+                  <li><i class="fas fa-check"></i> {feature}</li>
+                ))}
+              </ul>
+            </div>
+            {module.status === 'Active' && (
+              <a href={`/${module.title.toLowerCase().replace(' ai', '')}`} class="explore-btn">
+                Explore Module <i class="fas fa-arrow-right"></i>
+              </a>
+            )}
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="cta-section glass-card">
+      <h2>Ready to Transform Your Business?</h2>
+      <p>Start with our active modules today and stay tuned for upcoming releases.</p>
+      <div class="cta-buttons">
+        <a href="/fundraising" class="cta-btn primary">
+          <i class="fas fa-chart-line"></i> Invest in Our Vision
+        </a>
+        <a href="/careers" class="cta-btn secondary">
+          <i class="fas fa-users"></i> Join Our Team
+        </a>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  main {
+    margin: auto;
+    padding: 1rem;
+    max-width: 1400px;
+  }
+
+  .top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    margin-bottom: 2rem;
+    position: sticky;
+    top: 1rem;
+    z-index: 100;
+  }
+
+  .back-link {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+  }
+
+  .back-link:hover {
+    opacity: 1;
+  }
+
+  .hero {
+    text-align: center;
+    margin: 4rem auto;
+    max-width: 800px;
+    padding: 0 1rem;
+  }
+
+  h1 {
+    font-size: clamp(2.5rem, 8vw, 4rem);
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+  }
+
+  .description {
+    font-size: clamp(1.1rem, 3vw, 1.25rem);
+    color: rgb(var(--accent-light));
+    line-height: 1.6;
+  }
+
+  .modules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+  }
+
+  .module-card {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .module-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .icon-wrapper {
+    width: 50px;
+    height: 50px;
+    background: rgba(var(--accent-light), 0.1);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: rgb(var(--accent-light));
+  }
+
+  .status-badge {
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  .status-badge.active {
+    background: rgba(74, 222, 128, 0.2);
+    color: #4ade80;
+  }
+
+  .status-badge.coming-soon {
+    background: rgba(var(--accent-light), 0.2);
+    color: rgb(var(--accent-light));
+  }
+
+  .module-card h2 {
+    font-size: 1.5rem;
+    margin: 0 0 1rem;
+    color: rgb(var(--accent-light));
+  }
+
+  .module-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 1.5rem;
+  }
+
+  .features {
+    margin-top: auto;
+  }
+
+  .features h3 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: rgb(var(--accent-light));
+  }
+
+  .features ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .features li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+    font-size: 0.95rem;
+  }
+
+  .features li i {
+    color: #4ade80;
+  }
+
+  .explore-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 1rem;
+    margin-top: 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: rgb(var(--accent));
+    color: white;
+    text-decoration: none;
+  }
+
+  .explore-btn:hover {
+    background: rgb(var(--accent-light));
+    transform: translateY(-2px);
+  }
+
+  .cta-section {
+    text-align: center;
+    padding: 3rem 2rem;
+    margin-top: 4rem;
+  }
+
+  .cta-section h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: rgb(var(--accent-light));
+  }
+
+  .cta-section p {
+    margin-bottom: 2rem;
+    color: rgb(var(--accent-light));
+    font-size: 1.1rem;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+  }
+
+  .cta-btn.primary {
+    background: rgb(var(--accent));
+    color: white;
+  }
+
+  .cta-btn.secondary {
+    background: rgba(var(--accent-light), 0.1);
+    color: rgb(var(--accent-light));
+    border: 1px solid rgba(var(--accent-light), 0.2);
+  }
+
+  .cta-btn:hover {
+    transform: translateY(-2px);
+  }
+
+  .cta-btn.primary:hover {
+    background: rgb(var(--accent-light));
+  }
+
+  .cta-btn.secondary:hover {
+    background: rgba(var(--accent-light), 0.2);
+  }
+
+  @media (max-width: 768px) {
+    .top-nav {
+      padding: 1rem;
+    }
+
+    .modules-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+    }
+
+    .cta-btn {
+      width: 100%;
+    }
+  }
+</style>

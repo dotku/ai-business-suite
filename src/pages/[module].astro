@@ -1,0 +1,89 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+export function getStaticPaths() {
+  return [
+    { params: { module: 'recruiting' } },
+    { params: { module: 'fundraising' } }
+  ];
+}
+
+const modules = {
+  recruiting: {
+    title: "Recruiting AI",
+    ready: true
+  },
+  fundraising: {
+    title: "Fundraising AI",
+    ready: true
+  },
+  marketing: {
+    title: "Marketing AI",
+    ready: false
+  },
+  execution: {
+    title: "Execution AI",
+    ready: false
+  },
+  implementation: {
+    title: "Implementation AI",
+    ready: false
+  },
+  support: {
+    title: "Customer Support AI",
+    ready: false
+  },
+  sales: {
+    title: "Sales AI",
+    ready: false
+  },
+  analytics: {
+    title: "Data Analytics AI",
+    ready: false
+  },
+  content: {
+    title: "Content Creation AI",
+    ready: false
+  },
+  creative: {
+    title: "Creative AI",
+    ready: false
+  },
+  social: {
+    title: "Social Media Management AI",
+    ready: false
+  },
+  product: {
+    title: "Product Development AI",
+    ready: false
+  },
+  legal: {
+    title: "Legal AI",
+    ready: false
+  },
+  performance: {
+    title: "Performance Monitoring AI",
+    ready: false
+  }
+};
+
+const { module } = Astro.params;
+const moduleInfo = modules[module];
+
+if (!moduleInfo) {
+  return Astro.redirect('/404');
+}
+
+if (!moduleInfo.ready) {
+  return Astro.redirect('/under-construction');
+}
+
+// Module-specific redirects
+if (module === 'recruiting') {
+  return Astro.redirect('/recruitment');
+}
+---
+
+<Layout title={moduleInfo.title}>
+  <div>Redirecting...</div>
+</Layout>

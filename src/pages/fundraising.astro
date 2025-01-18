@@ -1,0 +1,435 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const investmentOpportunities = [
+  {
+    title: "Seed Round",
+    amount: "$500K - $2M",
+    description: "Early-stage funding for product development and market validation",
+    highlights: [
+      "Product prototype ready",
+      "Initial user traction",
+      "Clear market opportunity",
+      "Strong founding team"
+    ],
+    equity: "10-20%",
+    status: "Open"
+  },
+  {
+    title: "Series A",
+    amount: "$2M - $10M",
+    description: "Scaling operations and expanding market presence",
+    highlights: [
+      "Proven business model",
+      "Growing user base",
+      "Revenue traction",
+      "Market expansion plans"
+    ],
+    equity: "15-25%",
+    status: "Opening Soon"
+  },
+  {
+    title: "Strategic Partnership",
+    amount: "Custom",
+    description: "Technology partnership and market collaboration opportunities",
+    highlights: [
+      "Technology integration",
+      "Market access",
+      "Co-development opportunities",
+      "Revenue sharing models"
+    ],
+    equity: "Negotiable",
+    status: "Open"
+  }
+];
+
+const metrics = [
+  {
+    label: "Annual Revenue",
+    value: "$2.4M",
+    growth: "+125%",
+    icon: "chart-line"
+  },
+  {
+    label: "Active Users",
+    value: "50K+",
+    growth: "+85%",
+    icon: "users"
+  },
+  {
+    label: "Market Size",
+    value: "$12B",
+    growth: "+15%",
+    icon: "globe"
+  },
+  {
+    label: "Retention Rate",
+    value: "92%",
+    growth: "+8%",
+    icon: "heart"
+  }
+];
+---
+
+<Layout title="Investment Opportunities">
+  <main>
+    <nav class="top-nav glass-card">
+      <div class="logo">
+        <i class="fas fa-robot text-gradient"></i>
+        <span class="text-gradient">AI</span> Business Suite
+      </div>
+      <a href="/" class="back-link">
+        <i class="fas fa-arrow-left"></i> Back to Overview
+      </a>
+    </nav>
+
+    <header class="hero">
+      <h1>Investment <span class="text-gradient">Opportunities</span></h1>
+      <p class="description">
+        Join us in revolutionizing business operations through AI. We're seeking strategic partners 
+        and investors to accelerate our growth and market expansion.
+      </p>
+    </header>
+
+    <section class="metrics-section">
+      <div class="metrics-grid">
+        {metrics.map(metric => (
+          <div class="metric-card glass-card">
+            <i class={`fas fa-${metric.icon} metric-icon`}></i>
+            <div class="metric-content">
+              <h3>{metric.label}</h3>
+              <div class="metric-value">
+                <span class="value">{metric.value}</span>
+                <span class="growth">
+                  <i class="fas fa-arrow-up"></i> {metric.growth}
+                </span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="opportunities">
+      <h2>Current Opportunities</h2>
+      <div class="opportunities-grid">
+        {investmentOpportunities.map(opportunity => (
+          <div class="opportunity-card glass-card">
+            <div class="card-header">
+              <h3>{opportunity.title}</h3>
+              <span class={`status ${opportunity.status === 'Open' ? 'open' : 'soon'}`}>
+                {opportunity.status}
+              </span>
+            </div>
+            <div class="investment-details">
+              <div class="amount">
+                <i class="fas fa-coins"></i>
+                <span>{opportunity.amount}</span>
+              </div>
+              <div class="equity">
+                <i class="fas fa-chart-pie"></i>
+                <span>{opportunity.equity}</span>
+              </div>
+            </div>
+            <p class="opportunity-description">{opportunity.description}</p>
+            <div class="highlights">
+              <h4>Highlights</h4>
+              <ul>
+                {opportunity.highlights.map(highlight => (
+                  <li><i class="fas fa-check"></i> {highlight}</li>
+                ))}
+              </ul>
+            </div>
+            <a 
+              href="http://calendly.com/weijingjaylin" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class={`invest-btn ${opportunity.status !== 'Open' ? 'disabled' : ''}`}
+              onclick={opportunity.status !== 'Open' ? 'return false;' : ''}
+            >
+              {opportunity.status === 'Open' ? 'Schedule Meeting' : 'Coming Soon'}
+            </a>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="cta-section glass-card">
+      <h2>Ready to Invest?</h2>
+      <p>Schedule a meeting with our team to discuss investment opportunities.</p>
+      <a 
+        href="http://calendly.com/weijingjaylin" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        class="schedule-btn"
+      >
+        <i class="fas fa-calendar"></i> Schedule Meeting
+      </a>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  main {
+    margin: auto;
+    padding: 1rem;
+    max-width: 1400px;
+  }
+
+  .top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    margin-bottom: 2rem;
+    position: sticky;
+    top: 1rem;
+    z-index: 100;
+  }
+
+  .back-link {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+  }
+
+  .back-link:hover {
+    opacity: 1;
+  }
+
+  .hero {
+    text-align: center;
+    margin: 4rem auto;
+    max-width: 800px;
+    padding: 0 1rem;
+  }
+
+  h1 {
+    font-size: clamp(2.5rem, 8vw, 4rem);
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+  }
+
+  .description {
+    font-size: clamp(1.1rem, 3vw, 1.25rem);
+    color: rgb(var(--accent-light));
+    line-height: 1.6;
+  }
+
+  .metrics-section {
+    margin-bottom: 4rem;
+  }
+
+  .metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem;
+  }
+
+  .metric-card {
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .metric-icon {
+    font-size: 1.5rem;
+    color: rgb(var(--accent-light));
+    background: rgba(var(--accent-light), 0.1);
+    padding: 1rem;
+    border-radius: 12px;
+  }
+
+  .metric-content h3 {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin: 0;
+  }
+
+  .metric-value {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+  }
+
+  .value {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  .growth {
+    color: #4ade80;
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  .opportunities {
+    margin-bottom: 4rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: rgb(var(--accent-light));
+  }
+
+  .opportunities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+  }
+
+  .opportunity-card {
+    padding: 2rem;
+  }
+
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .card-header h3 {
+    font-size: 1.5rem;
+    margin: 0;
+    color: rgb(var(--accent-light));
+  }
+
+  .status {
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  .status.open {
+    background: rgba(74, 222, 128, 0.2);
+    color: #4ade80;
+  }
+
+  .status.soon {
+    background: rgba(var(--accent-light), 0.2);
+    color: rgb(var(--accent-light));
+  }
+
+  .investment-details {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .amount, .equity {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+  }
+
+  .opportunity-description {
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .highlights h4 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: rgb(var(--accent-light));
+  }
+
+  .highlights ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .highlights li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+    font-size: 0.95rem;
+  }
+
+  .highlights li i {
+    color: #4ade80;
+  }
+
+  .invest-btn, .schedule-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 1rem;
+    margin-top: 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: rgb(var(--accent));
+    color: white;
+    text-decoration: none;
+  }
+
+  .invest-btn:hover:not(.disabled), .schedule-btn:hover {
+    background: rgb(var(--accent-light));
+    transform: translateY(-2px);
+  }
+
+  .invest-btn.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  .cta-section {
+    text-align: center;
+    padding: 3rem 2rem;
+    margin-top: 4rem;
+  }
+
+  .cta-section h2 {
+    margin-bottom: 1rem;
+  }
+
+  .cta-section p {
+    margin-bottom: 2rem;
+    color: rgb(var(--accent-light));
+  }
+
+  .schedule-btn {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 768px) {
+    .metrics-grid {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .opportunities-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .metric-card {
+      padding: 1rem;
+    }
+
+    .opportunity-card {
+      padding: 1.5rem;
+    }
+  }
+</style>
