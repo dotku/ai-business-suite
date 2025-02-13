@@ -1,0 +1,34 @@
+{
+  "nav": {
+    "home": "首页",
+    "about": "关于我们",
+    "careers": "职业发展",
+    "businessPlan": "商业计划",
+    "crowdfunding": "众筹",
+    "fundraising": "募资",
+    "recruitment": "招聘",
+    "contact": "联系我们"
+  },
+  "common": {
+    "welcome": "欢迎",
+    "readMore": "阅读更多",
+    "underConstruction": "建设中",
+    "comingSoon": "即将推出"
+  },
+  "home": {
+    "title": "AI商业套件",
+    "subtitle": "您的完整AI商业解决方案",
+    "aiRoles": {
+      "marketingAI": {
+        "title": "营销AI",
+        "responsibilities": "受众细分, 营销活动规划和优化, 个性化内容推荐, 市场趋势分析和报告",
+        "technologies": "用于内容生成的自然语言处理, 用于营销活动优化的机器学习, 用于市场分析的大数据分析"
+      },
+      "financeAI": {
+        "title": "金融AI",
+        "responsibilities": "投资策略规划, 自动化会计和记账, 税务管理和合规, 财务报告和分析",
+        "technologies": "用于财务预测的机器学习, AI驱动的风险评估, 自动化财务报告"
+      }
+    }
+  }
+}

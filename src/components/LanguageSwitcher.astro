@@ -1,0 +1,46 @@
+---
+import { getLanguage } from 'astro-i18n';
+
+const currentLang = getLanguage();
+---
+
+<div class="language-switcher">
+  <a href="/" class={currentLang === 'en' ? 'active' : ''}>English</a>
+  <span>|</span>
+  <a href="/zh" class={currentLang === 'zh' ? 'active' : ''}>中文</a>
+</div>
+
+<style>
+  .language-switcher {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+  }
+
+  .language-switcher a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+  }
+
+  .language-switcher a:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  .language-switcher a.active {
+    background: rgba(255, 255, 255, 0.3);
+  }
+
+  .language-switcher span {
+    color: #fff;
+    margin: 0 0.5rem;
+    opacity: 0.7;
+  }
+</style>

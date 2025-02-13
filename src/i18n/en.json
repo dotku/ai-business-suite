@@ -1,0 +1,32 @@
+{
+  "common": {
+    "readMore": "Read More",
+    "underConstruction": "Under Construction",
+    "comingSoon": "Coming Soon"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "careers": "Careers",
+    "businessPlan": "Business Plan",
+    "crowdfunding": "Crowdfunding",
+    "fundraising": "Fundraising",
+    "recruitment": "Recruitment"
+  },
+  "home": {
+    "title": "AI Business Suite",
+    "subtitle": "Your Complete AI Business Solution",
+    "aiRoles": {
+      "marketingAI": {
+        "title": "Marketing AI",
+        "responsibilities": "Audience segmentation, Campaign planning and optimization, Personalized content recommendations, Market trend analysis and reporting",
+        "technologies": "NLP for content generation, Machine learning for campaign optimization, Big data analytics for market analysis"
+      },
+      "financeAI": {
+        "title": "Finance AI",
+        "responsibilities": "Investment strategy planning, Automated accounting and bookkeeping, Tax management and compliance, Financial reporting and analytics",
+        "technologies": "Machine learning for financial forecasting, AI-driven risk assessment, Automated financial reporting"
+      }
+    }
+  }
+}

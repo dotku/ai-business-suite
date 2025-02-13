@@ -1,86 +1,60 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import AIRole from '../components/AIRole.astro';
+import { useTranslations } from 'astro-i18n';
+
+const t = useTranslations();
 
 const aiRoles = [
   {
-    title: "Marketing AI",
+    title: t('home.aiRoles.marketingAI.title'),
     icon: "bullhorn",
-    responsibilities: [
-      "Audience segmentation",
-      "Campaign planning and optimization",
-      "Personalized content recommendations",
-      "Market trend analysis and reporting"
-    ],
-    technologies: [
-      "NLP for content generation",
-      "Machine learning for campaign optimization",
-      "Big data analytics for market analysis"
-    ],
+    responsibilities: t('home.aiRoles.marketingAI.responsibilities').split(', '),
+    technologies: t('home.aiRoles.marketingAI.technologies').split(', '),
     path: "/marketing",
     ready: false
   },
   {
-    title: "Finance AI",
+    title: t('home.aiRoles.financeAI.title'),
     icon: "money-bill-trend-up",
-    responsibilities: [
-      "Investment strategy planning",
-      "Automated accounting and bookkeeping",
-      "Tax management and compliance",
-      "Financial reporting and analytics"
-    ],
-    technologies: [
-      "AI-powered financial analysis",
-      "Automated accounting systems",
-      "Machine learning for tax optimization",
-      "Predictive financial modeling"
-    ],
+    responsibilities: t('home.aiRoles.financeAI.responsibilities').split(', '),
+    technologies: t('home.aiRoles.financeAI.technologies').split(', '),
     path: "/finance",
     ready: true
   },
   {
-    title: "Recruiting AI",
+    title: t('home.aiRoles.recruitingAI.title'),
     icon: "users",
-    responsibilities: [
-      "Screening and shortlisting candidates",
-      "Conducting preliminary interviews",
-      "Analyzing candidate data",
-      "AI-driven assessments"
-    ],
-    technologies: [
-      "NLP for resume parsing",
-      "AI-driven assessments",
-      "Machine learning for candidate matching"
-    ],
+    responsibilities: t('home.aiRoles.recruitingAI.responsibilities').split(', '),
+    technologies: t('home.aiRoles.recruitingAI.technologies').split(', '),
     path: "/recruiting",
     ready: true
   }
 ];
+
 ---
 
-<Layout title="AI Roles in Modern Business">
+<Layout title={t('home.title')}>
   <main>
     <nav class="top-nav glass-card">
       <div class="logo">
-        <i class="fas fa-robot text-gradient"></i>
-        <span class="text-gradient">AI</span> Business Suite
+        <span class="text-gradient">{t('home.title')}</span> Business Suite
       </div>
       <button class="menu-toggle" aria-label="Toggle menu">
         <i class="fas fa-bars"></i>
       </button>
       <div class="nav-links">
-        <a href="#" class="nav-link active">Overview</a>
-        <a href="/about" class="nav-link">About Us</a>
-        <a href="/business-plan" class="nav-link">Business Plan</a>
-        <a href="#" class="nav-link">Support</a>
+        <a href="#" class="nav-link active">{t('home.nav.overview')}</a>
+        <a href="/about" class="nav-link">{t('home.nav.aboutUs')}</a>
+        <a href="/business-plan" class="nav-link">{t('home.nav.businessPlan')}</a>
+        <a href="#" class="nav-link">{t('home.nav.support')}</a>
       </div>
     </nav>
 
     <header class="hero">
-      <h1>AI Roles in <span class="text-gradient">Modern Business</span></h1>
+      <h1><span class="text-gradient">{t('home.title')}</span></h1>
       <p class="description">
-        Explore how different AI roles can transform and optimize various aspects of business operations.
-        Each AI specializes in specific tasks while working together to create a comprehensive solution.
+        {t('home.subtitle')}
       </p>
     </header>
     
