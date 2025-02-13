@@ -1,8 +1,4 @@
-import { sequence } from 'astro:middleware';
-import i18nPkg from "astro-i18n";
-
-const { createMiddleware } = i18nPkg;
-
-export const onRequest = sequence(
-  createMiddleware()
-);
+import { sequence } from "astro/middleware";
+import { useAstroI18n } from "astro-i18n";
+const astroI18n = useAstroI18n(/* config options */);
+export const onRequest = sequence(astroI18n);

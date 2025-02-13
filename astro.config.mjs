@@ -1,14 +1,15 @@
 import { defineConfig } from "astro/config";
-import i18nPkg from "astro-i18n";
-
-const { createIntegration } = i18nPkg;
+// import i18n from "astro-i18n";
+// const { default: astroI18n } = i18n;
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [createIntegration({
-    defaultLocale: "en",
-    locales: ["en", "zh"],
-  })],
+//   integrations: [
+//     astroI18n({
+//       defaultLocale: "en",
+//       locales: ["en", "zh"],
+//     }),
+//   ],
   i18n: {
     defaultLocale: "en",
     locales: ["en", "zh"],

@@ -1,79 +1,84 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import AIRole from '../components/AIRole.astro';
-import { useTranslations } from 'astro-i18n';
-
-const t = useTranslations();
+import Layout from "../layouts/Layout.astro";
+import AIRole from "../components/AIRole.astro";
+import { t, astroI18n } from "astro-i18n";
 
 const aiRoles = [
   {
-    title: t('home.aiRoles.marketingAI.title'),
+    title: t("home.aiRoles.marketingAI.title"),
     icon: "bullhorn",
-    responsibilities: t('home.aiRoles.marketingAI.responsibilities').split(', '),
-    technologies: t('home.aiRoles.marketingAI.technologies').split(', '),
+    responsibilities: t("home.aiRoles.marketingAI.responsibilities").split(
+      ", "
+    ),
+    technologies: t("home.aiRoles.marketingAI.technologies").split(", "),
     path: "/marketing",
-    ready: false
+    ready: false,
   },
   {
-    title: t('home.aiRoles.financeAI.title'),
+    title: t("home.aiRoles.financeAI.title"),
     icon: "money-bill-trend-up",
-    responsibilities: t('home.aiRoles.financeAI.responsibilities').split(', '),
-    technologies: t('home.aiRoles.financeAI.technologies').split(', '),
+    responsibilities: t("home.aiRoles.financeAI.responsibilities").split(", "),
+    technologies: t("home.aiRoles.financeAI.technologies").split(", "),
     path: "/finance",
-    ready: true
+    ready: true,
   },
   {
-    title: t('home.aiRoles.recruitingAI.title'),
+    title: t("home.aiRoles.recruitingAI.title"),
     icon: "users",
-    responsibilities: t('home.aiRoles.recruitingAI.responsibilities').split(', '),
-    technologies: t('home.aiRoles.recruitingAI.technologies').split(', '),
+    responsibilities: t("home.aiRoles.recruitingAI.responsibilities").split(
+      ", "
+    ),
+    technologies: t("home.aiRoles.recruitingAI.technologies").split(", "),
     path: "/recruiting",
-    ready: true
-  }
+    ready: true,
+  },
 ];
-
 ---
 
-<Layout title={t('home.title')}>
+<Layout title={t("home.title")}>
   <main>
     <nav class="top-nav glass-card">
       <div class="logo">
-        <span class="text-gradient">{t('home.title')}</span> Business Suite
+        <span class="text-gradient">{t("home.title")}</span> Business Suite
       </div>
       <button class="menu-toggle" aria-label="Toggle menu">
         <i class="fas fa-bars"></i>
       </button>
       <div class="nav-links">
-        <a href="#" class="nav-link active">{t('home.nav.overview')}</a>
-        <a href="/about" class="nav-link">{t('home.nav.aboutUs')}</a>
-        <a href="/business-plan" class="nav-link">{t('home.nav.businessPlan')}</a>
-        <a href="#" class="nav-link">{t('home.nav.support')}</a>
+        <a href="#" class="nav-link active">{t("home.nav.overview")}</a>
+        <a href="/about" class="nav-link">{t("home.nav.aboutUs")}</a>
+        <a href="/business-plan" class="nav-link"
+          >{t("home.nav.businessPlan")}</a
+        >
+        <a href="#" class="nav-link">{t("home.nav.support")}</a>
       </div>
     </nav>
 
     <header class="hero">
-      <h1><span class="text-gradient">{t('home.title')}</span></h1>
+      <h1><span class="text-gradient">{t("home.title")}</span></h1>
       <p class="description">
-        {t('home.subtitle')}
+        {t("home.subtitle")}
       </p>
     </header>
-    
+
     <div class="roles-grid">
-      {aiRoles.map(role => (
-        <a href={role.path} class="role-link">
-          <AIRole
-            title={role.title}
-            responsibilities={role.responsibilities}
-            technologies={role.technologies}
-            icon={role.icon}
-          />
-          {!role.ready && (
-            <div class="construction-badge" title="Under Construction">
-              <i class="fas fa-hard-hat"></i>
-            </div>
-          )}
-        </a>
-      ))}
+      {
+        aiRoles.map((role) => (
+          <a href={role.path} class="role-link">
+            <AIRole
+              title={role.title}
+              responsibilities={role.responsibilities}
+              technologies={role.technologies}
+              icon={role.icon}
+            />
+            {!role.ready && (
+              <div class="construction-badge" title="Under Construction">
+                <i class="fas fa-hard-hat" />
+              </div>
+            )}
+          </a>
+        ))
+      }
     </div>
   </main>
 </Layout>
@@ -117,7 +122,8 @@ const aiRoles = [
     transition: all 0.2s ease;
   }
 
-  .nav-link:hover, .nav-link.active {
+  .nav-link:hover,
+  .nav-link.active {
     opacity: 1;
     color: rgb(var(--accent-light));
   }
@@ -216,17 +222,20 @@ const aiRoles = [
 </style>
 
 <script>
-  const menuToggle = document.querySelector('.menu-toggle');
-  const navLinks = document.querySelector('.nav-links');
+  const menuToggle = document.querySelector(".menu-toggle");
+  const navLinks = document.querySelector(".nav-links");
 
-  menuToggle?.addEventListener('click', () => {
-    navLinks?.classList.toggle('active');
+  menuToggle?.addEventListener("click", () => {
+    navLinks?.classList.toggle("active");
   });
 
   // Close menu when clicking outside
-  document.addEventListener('click', (e) => {
-    if (!menuToggle?.contains(e.target as Node) && !navLinks?.contains(e.target as Node)) {
-      navLinks?.classList.remove('active');
+  document.addEventListener("click", (e) => {
+    if (
+      !menuToggle?.contains(e.target as Node) &&
+      !navLinks?.contains(e.target as Node)
+    ) {
+      navLinks?.classList.remove("active");
     }
   });
 </script>

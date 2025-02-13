@@ -1,13 +1,11 @@
 ---
-import { getLanguage } from 'astro-i18n';
-
-const currentLang = getLanguage();
+const currentLang = Astro.currentLocale;
 ---
 
 <div class="language-switcher">
-  <a href="/" class={currentLang === 'en' ? 'active' : ''}>English</a>
+  <a href="/" class={currentLang === "en" ? "active" : ""}>English</a>
   <span>|</span>
-  <a href="/zh" class={currentLang === 'zh' ? 'active' : ''}>中文</a>
+  <a href="/zh" class={currentLang === "zh" ? "active" : ""}>中文</a>
 </div>
 
 <style>
